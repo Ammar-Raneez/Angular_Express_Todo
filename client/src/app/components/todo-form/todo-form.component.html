@@ -1,0 +1,4 @@
+<form class="add-todo-container" (submit)="addTodo(); $event.preventDefault()" name="todo-form">
+  <input type="text" [(ngModel)]="title" name="todo-title" placeholder="Add a todo" required />
+  <button type="submit">Add</button>
+</form>

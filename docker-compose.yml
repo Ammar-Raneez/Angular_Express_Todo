@@ -1,0 +1,29 @@
+name: todo-app
+
+services:
+  todo-app-client:
+    container_name: todo-app-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - ${CLIENT_PORT}:${CLIENT_PORT}
+    networks:
+      - todo-app-network
+    env_file:
+      - .env
+
+  todo-app-server:
+    container_name: todo-app-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    networks:
+      - todo-app-network
+    env_file:
+      - .env
+
+networks:
+  todo-app-network:
