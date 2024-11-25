@@ -9,6 +9,8 @@ class TodoController {
   /**
    * Creates a todo.
    *
+   * If the creation fails, the error message is returned.
+   *
    * @param req - The HTTP request object.
    * @param res - The HTTP response object.
    * @returns The created todo.
@@ -25,6 +27,8 @@ class TodoController {
   /**
    * Retrieves all the todos.
    *
+   * If the creation fails, the error message is returned.
+   *
    * @param _ - The HTTP request object.
    * @param res - The HTTP response object.
    * @returns All the available todos.
@@ -40,6 +44,8 @@ class TodoController {
 
   /**
    * Retrieves a specific todo.
+   *
+   * If the creation fails, the error message is returned.
    *
    * @param req - The HTTP request object.
    * @param res - The HTTP response object.
@@ -58,6 +64,8 @@ class TodoController {
   /**
    * Updates a specific todo.
    *
+   * If the creation fails, the error message is returned.
+   *
    * @param req - The HTTP request object.
    * @param res - The HTTP response object.
    * @returns The updated todo.
@@ -73,6 +81,8 @@ class TodoController {
 
   /**
    * Deletes a specific todo.
+   *
+   * If the creation fails, the error message is returned.
    *
    * @param req - The HTTP request object,
    * @param res - The HTTP response object.

@@ -1,6 +1,24 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 
-const todoSchema = new Schema({
+/**
+ * Represents a Todo document.
+ */
+export interface ITodo extends Document {
+  /**
+   * The title of the todo.
+   */
+  title: string;
+
+  /**
+   * The completion status of the todo.
+   */
+  completed: boolean;
+}
+
+/**
+ * Mongoose schema for a Todo item.
+ */
+const todoSchema = new Schema<ITodo>({
   title: {
     type: String,
     required: true,
@@ -12,5 +30,9 @@ const todoSchema = new Schema({
   },
 });
 
-const Todo = model("Todo", todoSchema);
+/**
+ * Mongoose model for interacting with the "todos" collection.
+ */
+const Todo = model<ITodo>("Todo", todoSchema);
+
 export default Todo;

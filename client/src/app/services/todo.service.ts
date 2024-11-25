@@ -7,7 +7,7 @@ import { Todo } from '../models/todo';
   providedIn: 'root',
 })
 export class TodoService {
-  private API_URL = 'http://localhost:3000/api/todos';
+  private API_URL = 'http://localhost:3000/api/v1/todos';
   private todosSignal = signal<Todo[]>([]);
 
   constructor(private http: HttpClient) {}
