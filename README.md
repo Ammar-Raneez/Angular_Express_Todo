@@ -2,7 +2,7 @@
 
 <hr />
 
-This is a basic Todo application built using Angular and ExpressJS.Utilizing Angular Signals, and an OOP-MVC type of architecture for the server.
+This is a basic Todo application built using Angular and ExpressJS. Utilizing Angular Signals, and an OOP-MVC type of architecture for the server.
 
 The system is served through NGINX.
 
@@ -32,6 +32,7 @@ The required environment variables are as follows:
     * SERVER_PORT: The port for the server to run on.
     * CLIENT_PORT: The port for the client to run on.
     * MONGO_URI: MongoDB database connection.
+    * NODE_ENV: The environment to run the system on.
 
 ## Networking
 All services are connected to the `todo-app-network`, allowing communication between them if needed.
