@@ -6,13 +6,17 @@ import morgan from "morgan";
 
 import dbConnection from "./config/db";
 import todoRoutes from "./routes/todoRoutes";
+import { limiter } from "./utils/rateLimiter";
 
 dotenv.config();
 
 const SERVER_PORT = process.env.SERVER_PORT;
-const CLIENT_URL = `http://localhost`;
+const CLIENT_URL = "http://localhost";
 
 const app = express();
+
+// Use rate limiter
+app.use(limiter);
 
 // Set security headers
 app.use(helmet());
@@ -22,17 +26,16 @@ app.use(json());
 
 // Only allow the Angular FE from calling this.
 const corsOptions = {
-  origin: [
-    CLIENT_URL,
-  ]
-}
+  origin: [CLIENT_URL],
+};
+
 app.use(cors(corsOptions));
 
 // Industry standard API path.
 app.use("/api/v1", todoRoutes);
 
 // Set up logging
-app.use(morgan('tiny'));
+app.use(morgan("tiny"));
 
 dbConnection
   .getConnection()
